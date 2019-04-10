@@ -6,7 +6,9 @@ import "./layout.css"
 
 const Layout = ({ children }) => (
       <PageTransition>
-            {children}
+            <div className="content">
+                  {children}
+            </div>
       </PageTransition>
 )
 
