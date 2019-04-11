@@ -20,6 +20,12 @@ export default function Dropdown({ label, options }) {
                                                             setOption(option);
                                                             setOpen(false);
                                                       }}
+                                                      tabIndex="0"
+                                                      onKeyPress={(e) => {
+                                                            if (e.key === "Enter") {
+                                                                  e.target.click();
+                                                            }
+                                                      }}
                                                 >{option}</li>
                                           ))
                                     }
