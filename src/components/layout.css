@@ -112,3 +112,28 @@ button::after{
       }
 }
 
+@media(max-width: 1310px){
+      h1{
+            font-size: 50px;
+      }
+      .content{
+            width: 75vw;
+      }
+      .settings{
+            flex-direction: column;
+            height: 60vh;
+      }
+      .btn {
+            width: 100%;
+      }
+      .dropdown{
+            width: 75vw;
+            padding: 1rem;
+            z-index: 2;
+            background: #eee;
+            border-radius: 7px;
+      }
+      .dropdown li{
+            background: #fff;
+      }
+}
