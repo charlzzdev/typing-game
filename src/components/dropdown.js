@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 
-export default function Dropdown({ label, options }) {
+export default function Dropdown({ label, options, gameSettings, setGameSettings }) {
       const [open, setOpen] = useState(false);
-      const [getOption, setOption] = useState('Choose');
 
       return (
             <div className="select">
                   <label>{label}</label>
-                  <button className="btn" onClick={() => setOpen(!open)}>{getOption}</button>
+                  <button className="btn" onClick={() => setOpen(!open)}>{gameSettings[label]}</button>
                   {
                         open && (
                               <ul className="dropdown">
@@ -16,8 +15,11 @@ export default function Dropdown({ label, options }) {
                                                 <li
                                                       className="btn"
                                                       key={index}
-                                                      onClick={() => {
-                                                            setOption(option);
+                                                      onClick={(e) => {
+                                                            setGameSettings({
+                                                                  ...gameSettings,
+                                                                  [label]: e.target.innerHTML
+                                                            });
                                                             setOpen(false);
                                                       }}
                                                       tabIndex="0"

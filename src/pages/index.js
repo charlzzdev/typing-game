@@ -1,21 +1,44 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Dropdown from "../components/dropdown"
 
-const IndexPage = () => (
-      <Layout>
-            <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-            <h1>Typing Game</h1>
-            <div className="settings">
-                  <Dropdown label={'Mode'} options={['Timed', 'Not Timed']} />
-                  <Dropdown label={'Type'} options={['Text', 'Words']} />
-                  <Dropdown label={'Duration'} options={['Long', 'Short']} />
-                  <Link to="/game" className="btn">Play</Link>
-            </div>
-      </Layout>
-)
+const IndexPage = () => {
+      const [gameSettings, setGameSettings] = useState({
+            mode: 'Timed',
+            type: 'Text',
+            duration: 'Long'
+      });
+
+      return (
+            <Layout>
+                  <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+                  <h1>Typing Game</h1>
+                  <div className="settings">
+                        <Dropdown
+                              label={'mode'}
+                              options={['Timed', 'Practice']}
+                              gameSettings={gameSettings}
+                              setGameSettings={setGameSettings}
+                        />
+                        <Dropdown
+                              label={'type'}
+                              options={['Text', 'Words']}
+                              gameSettings={gameSettings}
+                              setGameSettings={setGameSettings}
+                        />
+                        <Dropdown
+                              label={'duration'}
+                              options={['Long', 'Short']}
+                              gameSettings={gameSettings}
+                              setGameSettings={setGameSettings}
+                        />
+                        <Link to="/game" className="btn" state={{ gameSettings }}>Play</Link>
+                  </div>
+            </Layout>
+      )
+}
 
 export default IndexPage
