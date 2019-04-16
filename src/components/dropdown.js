@@ -6,7 +6,7 @@ export default function Dropdown({ label, options, gameSettings, setGameSettings
       return (
             <div className="select">
                   <label>{label}</label>
-                  <button className="btn" onClick={() => setOpen(!open)}>{gameSettings[label]}</button>
+                  <button className={`btn ${label}`} onClick={() => setOpen(!open)}>{gameSettings[label]}</button>
                   {
                         open && (
                               <ul className="dropdown">
@@ -21,6 +21,10 @@ export default function Dropdown({ label, options, gameSettings, setGameSettings
                                                                   [label]: e.target.innerHTML
                                                             });
                                                             setOpen(false);
+
+                                                            const durationBtn = document.querySelector(`.duration`);
+                                                            e.target.innerHTML === 'Practice' && (durationBtn.disabled = true);
+                                                            e.target.innerHTML === 'Timed' && (durationBtn.disabled = false);
                                                       }}
                                                       tabIndex="0"
                                                       onKeyPress={(e) => {

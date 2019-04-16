@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Timer({ mode, duration }) {
-      const [time, setTime] = useState({ min: 5, sec: 0 });
+      const [time, setTime] = useState({ min: duration.split(' ')[0], sec: 0 });
 
-      useEffect(() => {
+      mode === 'Timed' && useEffect(() => {
             const countdown = setInterval(() => {
                   setTime(prevTime => {
                         if (prevTime.sec > 0) {

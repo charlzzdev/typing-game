@@ -11,7 +11,7 @@ const Game = ({ location }) => {
                   gameSettings: {
                         mode: 'Timed',
                         type: 'Text',
-                        duration: 'Long'
+                        duration: '1 minute'
                   }
             }
       }

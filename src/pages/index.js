@@ -9,7 +9,7 @@ const IndexPage = () => {
       const [gameSettings, setGameSettings] = useState({
             mode: 'Timed',
             type: 'Text',
-            duration: 'Long'
+            duration: '1 minute'
       });
 
       return (
@@ -31,7 +31,7 @@ const IndexPage = () => {
                         />
                         <Dropdown
                               label={'duration'}
-                              options={['Long', 'Short']}
+                              options={['1 minute', '5 minutes']}
                               gameSettings={gameSettings}
                               setGameSettings={setGameSettings}
                         />

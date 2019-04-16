@@ -57,6 +57,11 @@ h1{
       background: #ffffff9d;
 }
 
+.btn:disabled{
+      color: #ffffff77;
+      background: #ffffff3a;
+}
+
 button{
       width: 180px;
 }
