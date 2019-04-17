@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import wordList from '../assets/wordList';
 
-export default function Words() {
+export default function Words({ score, setScore }) {
       const newWord = () => wordList[Math.floor(Math.random() * 2338)];
       const [currentWord, setCurrentWord] = useState(newWord());
       const [currentChar, setCurrentChar] = useState(0);
@@ -14,6 +14,7 @@ export default function Words() {
                   } else {
                         setCurrentChar(0);
                         setCurrentWord(newWord());
+                        setScore(score + 1);
                   }
             }
       }
