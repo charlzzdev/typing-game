@@ -100,13 +100,6 @@ button::after{
       margin: 0.3rem 0;
 }
 
-.game-header{
-      display: flex;
-      font-size: 1.3rem;
-      color: #fff;
-      justify-content: space-between;
-}
-
 @keyframes dropdown {
       0%{
             opacity: 0;
@@ -123,6 +116,45 @@ button::after{
             transform: translateY(0);
       }
 }
+
+.game-header{
+      display: flex;
+      font-size: 1.3rem;
+      color: #fff;
+      justify-content: space-between;
+}
+
+.words{
+      padding: 1.5rem;
+      border-radius:7px;
+      font-size: 4rem;
+      background: #ffffff3a;
+      color: #333;
+      display: flex;
+      cursor: text;
+      box-shadow: 0 0 8px rgba(51, 51, 51, 0.24);
+      transition: box-shadow 200ms;
+}
+
+.words:focus{
+      outline: 0;
+      box-shadow: 0 0 15px rgba(51, 51, 51, 0.24);
+}
+
+.words:focus .cursor{
+      width: 3px;
+      height: 100%;
+      background: #333;
+      animation: pulse 850ms infinite ease-in;
+}
+
+@keyframes pulse{
+      0%{opacity: 0;}
+      50%{opacity: 1;}
+      100%{opacity: 0;}
+}
+
+
 
 @media(max-width: 1310px){
       h1{
@@ -147,5 +179,8 @@ button::after{
       }
       .dropdown li{
             background: #fff;
+      }
+      .words{
+            font-size: 2rem;
       }
 }
