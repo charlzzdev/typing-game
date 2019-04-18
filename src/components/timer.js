@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Timer({ mode, duration }) {
+export default function Timer({ mode, duration, score, setGameActive }) {
       const [time, setTime] = useState({ min: duration.split(' ')[0], sec: 0 });
 
       mode === 'Timed' && useEffect(() => {
@@ -18,6 +18,7 @@ export default function Timer({ mode, duration }) {
                               }
                         } else {
                               clearInterval(countdown);
+                              setGameActive(false);
                               return prevTime;
                         }
                   });
