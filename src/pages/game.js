@@ -23,9 +23,10 @@ const Game = ({ location }) => {
       return (
             <Layout>
                   <SEO title="Typing Game" />
-                  <h1>Game page</h1>
-                  <Timer mode={gameSettings.mode} duration={gameSettings.duration} />
-                  <div className="score">Score: {score}</div>
+                  <header className="game-header">
+                        <Timer mode={gameSettings.mode} duration={gameSettings.duration} />
+                        <div className="score">Score: {score}</div>
+                  </header>
                   <Words score={score} setScore={setScore} />
                   <Link to="/" className="btn">Go back to the homepage</Link>
             </Layout>

@@ -100,6 +100,13 @@ button::after{
       margin: 0.3rem 0;
 }
 
+.game-header{
+      display: flex;
+      font-size: 1.3rem;
+      color: #fff;
+      justify-content: space-between;
+}
+
 @keyframes dropdown {
       0%{
             opacity: 0;

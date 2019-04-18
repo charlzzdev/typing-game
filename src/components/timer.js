@@ -30,10 +30,10 @@ export default function Timer({ mode, duration }) {
             <>
                   {
                         mode === 'Timed' ? (
-                              <div>
+                              <div className="timer">
                                     {time.min < 10 ? `0${time.min}` : time.min}:{time.sec < 10 ? `0${time.sec}` : time.sec}
                               </div>
-                        ) : <div style={{ fontSize: '40px' }}>∞</div>
+                        ) : <div className="timer">∞</div>
                   }
             </>
       )
