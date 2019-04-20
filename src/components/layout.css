@@ -188,6 +188,33 @@ button::after{
       }
 }
 
+.score{
+      position: relative;
+}
+
+.streak{
+      position: absolute;
+      right:-50%;
+      top: 0;
+      color: #b12aff;
+      animation: streak 1s forwards;
+}
+
+@keyframes streak{
+      0%{
+            opacity: 0;
+            transform: scale(0.8) translateY(0);
+      }
+      40%{
+            opacity: 1;
+            transform: scale(1.2) translateY(-5px);
+      }
+      100%{
+            opacity: 0;
+            transform: scale(1) translateY(0);
+      }
+}
+
 
 @media(max-width: 1310px){
       h1{
@@ -223,5 +250,9 @@ button::after{
       }
       .endGameResults h1{
             font-size: 3rem;
+      }
+      .streak{
+            right: 0;
+            top: -100%;
       }
 }
