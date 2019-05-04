@@ -16,7 +16,7 @@ const Game = ({ location }) => {
             location.state = {
                   gameSettings: {
                         mode: 'Timed',
-                        type: 'Text',
+                        type: 'Sentences',
                         duration: '1 minute'
                   }
             }
@@ -35,18 +35,17 @@ const Game = ({ location }) => {
                   </header>
                   {
                         gameActive ? <Words
+                              type={gameSettings.type}
                               score={score}
                               setScore={setScore}
                               streak={streak}
                               setStreak={setStreak}
                               setWordEnd={setWordEnd}
-                        /> : (
-                                    <div className="endGameResults">
-                                          <h1>Congratulations!</h1>
-                                          <p>You've reached a score of <strong style={{ color: '#FF8E53' }}>{score}</strong> in {gameSettings.duration}.</p>
-                                          <Link to="/" className="btn">Go back to the homepage</Link>
-                                    </div>
-                              )
+                        /> : <div className="endGameResults">
+                                    <h1>Congratulations!</h1>
+                                    <p>You've reached a score of <strong style={{ color: '#FF8E53' }}>{score}</strong> in {gameSettings.duration} of writing {gameSettings.type.toLowerCase()}.</p>
+                                    <Link to="/" className="btn">Go back to the homepage</Link>
+                              </div>
                   }
                   <Link to="/" className="btn">Go back to the homepage</Link>
             </Layout>

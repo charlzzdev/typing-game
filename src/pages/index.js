@@ -8,7 +8,7 @@ import Dropdown from "../components/dropdown"
 const IndexPage = () => {
       const [gameSettings, setGameSettings] = useState({
             mode: 'Timed',
-            type: 'Text',
+            type: 'Sentences',
             duration: '1 minute'
       });
 
@@ -25,7 +25,7 @@ const IndexPage = () => {
                         />
                         <Dropdown
                               label={'type'}
-                              options={['Text', 'Words']}
+                              options={['Sentences', 'Words']}
                               gameSettings={gameSettings}
                               setGameSettings={setGameSettings}
                         />

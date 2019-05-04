@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 import wordList from '../assets/wordList';
+import sentenceList from '../assets/sentenceList';
 
-export default function Words({ score, setScore, streak, setStreak, setWordEnd }) {
-      const newWord = () => wordList[Math.floor(Math.random() * 2338)];
+export default function Words({ type, score, setScore, streak, setStreak, setWordEnd }) {
+      const newWord = () => {
+            if (type === 'Words') {
+                  return wordList[Math.floor(Math.random() * 2338)];
+            } else return sentenceList[Math.floor(Math.random() * 68)];
+      }
       const [currentWord, setCurrentWord] = useState(newWord());
       const [currentChar, setCurrentChar] = useState(0);
+      const charAmount = Math.round(window.innerWidth / 70);
 
       useEffect(() => {
             document.querySelector('.words').focus();
@@ -36,9 +42,13 @@ export default function Words({ score, setScore, streak, setStreak, setWordEnd }
                   title="Type here"
                   onKeyPress={(e) => handleKeyPress(e)}
             >
-                  {currentWord.substring(0, currentChar)}
+                  {currentWord.substring(currentChar - charAmount, currentChar)}
+                  {currentWord.charAt(currentChar - 1) === ' ' && <span>&nbsp;</span>}
                   <div className="cursor"></div>
-                  <div style={{ opacity: 0.5 }}>{currentWord.substring(currentChar, currentWord.length)}</div>
+                  <div style={{ opacity: 0.5 }}>
+                        {currentWord.charAt(currentChar) === ' ' && <span>&nbsp;</span>}
+                        {currentWord.substring(currentChar, currentWord.length).substring(0, charAmount)}
+                  </div>
             </div>
       )
 }
