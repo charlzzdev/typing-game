@@ -11,7 +11,8 @@ export default function Words({ type, score, setScore, streak, setStreak, setWor
       }
       const [currentWord, setCurrentWord] = useState(newWord());
       const [currentChar, setCurrentChar] = useState(0);
-      const charAmount = Math.round(window.innerWidth / 70);
+      const charAmount = typeof window !== 'undefined' && Math.round(window.innerWidth / 70)
+
 
       useEffect(() => {
             document.querySelector('.words').focus();
