@@ -34,6 +34,18 @@ h1{
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      animation: contentFadeIn 340ms ease-out;
+}
+
+@keyframes contentFadeIn{
+      from{
+            opacity: 0;
+            transform: translateY(50px);
+      }
+      to{
+            opacity: 1;
+            transform: translateY(0);
+      }
 }
 
 .settings{
