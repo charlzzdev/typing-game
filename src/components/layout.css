@@ -230,14 +230,14 @@ button::after{
 
 @media(max-width: 1310px){
       h1{
-            font-size: 50px;
+            font-size: 40px;
       }
       .content{
             width: 75vw;
       }
       .settings{
             flex-direction: column;
-            height: 60vh;
+            height: 70vh;
       }
       .btn {
             width: 100%;
@@ -263,5 +263,11 @@ button::after{
       .streak{
             right: 0;
             top: -100%;
+      }
+}
+
+@media(max-height: 880px){
+      .content{
+            height: 100vh;
       }
 }
