@@ -5,12 +5,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Timer from '../components/timer'
 import Words from '../components/words'
+import Keyboard from '../components/keyboard'
 
 const Game = ({ location }) => {
       const [score, setScore] = useState(0);
       const [streak, setStreak] = useState(1);
       const [gameActive, setGameActive] = useState(true);
       const [wordEnd, setWordEnd] = useState(false);
+      const [keyboardOpen, setKeyboardOpen] = useState(false);
 
       if (!location.state) {
             location.state = {
@@ -41,6 +43,8 @@ const Game = ({ location }) => {
                               streak={streak}
                               setStreak={setStreak}
                               setWordEnd={setWordEnd}
+                              keyboardOpen={keyboardOpen}
+                              setKeyboardOpen={setKeyboardOpen}
                         /> : <div className="endGameResults">
                                     <h1>Congratulations!</h1>
                                     <p>You've reached a score of <strong style={{ color: '#FF8E53' }}>{score}</strong> in {gameSettings.duration} of writing {gameSettings.type.toLowerCase()}.</p>
@@ -48,6 +52,7 @@ const Game = ({ location }) => {
                               </div>
                   }
                   <Link to="/" className="btn">Go back to the homepage</Link>
+                  <Keyboard open={keyboardOpen} />
             </Layout>
       )
 }
