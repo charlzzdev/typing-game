@@ -10,6 +10,7 @@ body{
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
 }
 
 *{
@@ -237,7 +238,8 @@ button::after{
       bottom: 0;
       left: 0;
       box-shadow: 2px 2px 10px #222;
-      animation: keyboardFadeIn 670ms ease-in-out;
+      transition: bottom 670ms cubic-bezier(.75,0,.4,1.01);
+      animation: generalFadeIn 670ms;
 
       display: grid;
       grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
@@ -247,16 +249,8 @@ button::after{
       align-items: center;
 }
 
-@keyframes keyboardFadeIn{
-      0%{
-            opacity: 0;
-            height: 0;
-      }
-      50%{ opacity: 0; }
-      100%{
-            opacity: 1;
-            height: 35%;
-      }
+#keyboard.inactive{
+      bottom: -100%;
 }
 
 #keyboard .key, #keyboard .shift{
@@ -264,6 +258,26 @@ button::after{
       padding: 10px 5px;
       font-weight: bold;
       border-radius: 4px;
+}
+
+.activate-keyboard{
+      position: absolute;
+      right: 0.8rem;
+      bottom: 0.8rem;
+      cursor: pointer;
+      transition: all 670ms cubic-bezier(.75,0,.4,1.01);
+      animation: generalFadeIn 670ms;
+}
+
+@keyframes generalFadeIn {
+      0%{opacity: 0}
+      50%{opacity: 0}
+      100%{opacity: 1}
+}
+
+.activate-keyboard.active{
+      bottom: 35vh;
+      transform: rotateZ(-180deg);
 }
 
 @media(max-width: 1310px){

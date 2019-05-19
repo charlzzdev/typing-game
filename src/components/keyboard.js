@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Keyboard = () => {
+const Keyboard = ({active}) => {
       const [keys, setKeys] = useState([]);
       const keyArr = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '-', '↑', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.'];
 
@@ -22,7 +22,7 @@ const Keyboard = () => {
       }
 
       return (
-            <div id="keyboard">
+            <div id="keyboard" className={active ? 'active' : 'inactive'}>
                   {
                         keyArr.map(key => {
                               if (key !== '↑') {
