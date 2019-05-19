@@ -45,7 +45,7 @@ export default function Words({ type, score, setScore, streak, setStreak, setWor
                   className={`words ${keyboardActive ? 'keyboard-active' : ''}`}
                   tabIndex="0"
                   title="Type here"
-                  onClick={() => setKeyboardActive(true)}
+                  onClick={() => typeof window !== 'undefined' && window.innerWidth < 800 && setKeyboardActive(true)}
                   onKeyPress={(e) => handleKeyPress(e)}
             >
                   {currentWord.substring(currentChar - charAmount, currentChar)}
