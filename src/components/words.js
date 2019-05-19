@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import wordList from '../assets/wordList';
 import sentenceList from '../assets/sentenceList';
 
-export default function Words({ type, score, setScore, streak, setStreak, setWordEnd }) {
+export default function Words({ type, score, setScore, streak, setStreak, setWordEnd, keyboardActive, setKeyboardActive, pressedKey }) {
       const newWord = () => {
             if (type === 'Words') {
                   return wordList[Math.floor(Math.random() * 2338)];
@@ -17,6 +17,10 @@ export default function Words({ type, score, setScore, streak, setStreak, setWor
       useEffect(() => {
             document.querySelector('.words').focus();
       }, [])
+
+      useEffect(() => {
+            pressedKey.key && handleKeyPress(pressedKey);
+      }, [pressedKey])
 
       const handleKeyPress = e => {
             if (e.key === currentWord.charAt(currentChar)) {
@@ -38,9 +42,10 @@ export default function Words({ type, score, setScore, streak, setStreak, setWor
 
       return (
             <div
-                  className="words"
+                  className={`words ${keyboardActive ? 'keyboard-active' : ''}`}
                   tabIndex="0"
                   title="Type here"
+                  onClick={() => setKeyboardActive(true)}
                   onKeyPress={(e) => handleKeyPress(e)}
             >
                   {currentWord.substring(currentChar - charAmount, currentChar)}

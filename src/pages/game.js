@@ -13,6 +13,7 @@ const Game = ({ location }) => {
       const [gameActive, setGameActive] = useState(true);
       const [wordEnd, setWordEnd] = useState(false);
       const [keyboardActive, setKeyboardActive] = useState(typeof window !== 'undefined' && window.innerWidth < 800 ? true : false);
+      const [pressedKey, setPressedKey] = useState({});
 
       if (!location.state) {
             location.state = {
@@ -43,6 +44,9 @@ const Game = ({ location }) => {
                               streak={streak}
                               setStreak={setStreak}
                               setWordEnd={setWordEnd}
+                              keyboardActive={keyboardActive}
+                              setKeyboardActive={setKeyboardActive}
+                              pressedKey={pressedKey}
                         /> : <div className="endGameResults">
                                     <h1>Congratulations!</h1>
                                     <p>You've reached a score of <strong style={{ color: '#FF8E53' }}>{score}</strong> in {gameSettings.duration} of writing {gameSettings.type.toLowerCase()}.</p>
@@ -50,7 +54,7 @@ const Game = ({ location }) => {
                               </div>
                   }
                   <Link to="/" className="btn">Go back to the homepage</Link>
-                  <Keyboard active={keyboardActive} />
+                  <Keyboard active={keyboardActive} setPressedKey={setPressedKey} gameType={gameSettings.type} />
                   <svg xmlns="https://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ffffffd3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`activate-keyboard ${keyboardActive ? 'active' : 'inactive'}`} onClick={() => setKeyboardActive(!keyboardActive)}><path d="M17 11l-5-5-5 5M17 18l-5-5-5 5" /></svg>
             </Layout>
       )

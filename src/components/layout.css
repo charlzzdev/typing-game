@@ -154,7 +154,7 @@ button::after{
       box-shadow: 0 0 15px rgba(51, 51, 51, 0.24);
 }
 
-.words:focus .cursor{
+.words:focus .cursor, .words.keyboard-active .cursor{
       width: 3px;
       height: 100%;
       background: #333;
@@ -229,7 +229,7 @@ button::after{
 }
 
 #keyboard{
-      background: #222;
+      background: #222222b4;
       color: #fff;
       padding: 1rem;
       position: absolute;
@@ -243,7 +243,7 @@ button::after{
 
       display: grid;
       grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-      grid-template-rows: 33.3% 33.3% 33.3%;
+      grid-template-rows: 20% 20% 20% 20% 20%;
       grid-gap: 3px;
       justify-content: center;
       align-items: center;
@@ -254,10 +254,15 @@ button::after{
 }
 
 #keyboard .key, #keyboard .shift{
-      background: #333;
+      background: #333333e3;
       padding: 10px 5px;
       font-weight: bold;
       border-radius: 4px;
+}
+
+#keyboard .space{
+      grid-column: 3 / 9;
+      height: 75%;
 }
 
 .activate-keyboard{
