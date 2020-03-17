@@ -1,3 +1,9 @@
+# [Typing Game](https://type.charleseller.dev)
+This app can be used for practicing typing. Users can choose between different modes, and they get bonus points for not making spelling mistakes.
+
+## Tech used
+- **React with Gatsby** for frontend
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
